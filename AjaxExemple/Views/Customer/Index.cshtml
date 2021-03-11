@@ -1,0 +1,44 @@
+﻿@model IEnumerable<AjaxExemple.Models.CustomerModel>
+<style>
+    ul {
+        list-style-type: none;
+    }
+
+    #ShowCutomerDetailsArea {
+        border: 1px solid black;
+        border-radius: 5px;
+        margin: 10px;
+        padding: 10px;
+    }
+    #TimeOfFirstRefresh {
+        border: 1px solid black;
+        border-radius: 5px;
+        margin: 10px;
+        padding: 10px;
+    }
+    
+</style>
+<form asp-action="ShowMore" asp-controller="Customer">
+    <div id="TimeOfFirstRefresh">
+        @System.DateTime.Now
+    </div>
+    <ul>
+
+        @foreach (var item in Model)
+        {
+            <li>
+                <input type="radio" name="Id" value="@item.Id" />
+                <label>@item.Name</label>
+            </li>
+        }
+    </ul>
+    <input type="submit" id="ShowCustomerDetailsButton" value="Show details" />
+</form>
+
+<div id="ShowCutomerDetailsArea">
+    <p>
+        This area is meant to display the customer details.
+        
+        
+    </p>
+</div>
